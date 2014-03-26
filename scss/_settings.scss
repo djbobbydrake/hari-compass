@@ -56,6 +56,7 @@ $body-font-family: "Roboto", Helvetica, Arial, sans-serif;
 
 // We use these as default colors throughout
 $primary-color: #f8981d;
+$primary-link-color: #fff;
 // $secondary-color: #e7e7e7;
 // $alert-color: #f04124;
 // $success-color: #43AC6A;
@@ -672,7 +673,7 @@ $header-font-color: #f4f4f4;
 
 // Off Canvas Menu Icon Variables
 // $tabbar-menu-icon-color: #FFF;
-// $tabbar-menu-icon-hover: scale-color($tabbar-menu-icon-color, $lightness: -30%);
+$tabbar-menu-icon-hover: $primary-color;
 
 // $tabbar-menu-icon-text-indent: rem-calc(35);
 // $tabbar-menu-icon-width: $tabbar-height;

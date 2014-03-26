@@ -1,7 +1,29 @@
+// Logo
+.name img {
+  height: 40px;
+  position: relative;
+  top: -5px;
+
+  &:hover {
+    opacity: 0.95;
+  }
+}
+
+// Typography
+h4 {
+  a {
+    color: $primary-link-color;
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}
+
 // Body
 .f-topbar-fixed {
   padding-top: 0 !important;
 }
+
 
 // Nav styles
 .top-bar-container {
@@ -13,21 +35,26 @@
     }
 
     & ul.dropdown {
-      display: none !important;
       & > li > a {
-        line-height: 20px;
+        line-height: rem-calc(35);
         text-transform: none;
       }
     }
 
     & a {
-      @include single-transition(all, 100ms);
+      @include single-transition(background-color, 100ms);
     }
   }
 }
 
 // Main content div.
-div[role=main] {
+.content {
+  padding-bottom: rem-calc(20);
+
+  & img {
+    margin-top: rem-calc(15);
+    margin-bottom: rem-calc(10);
+  }
 }
 
 // Orbit overrides.
@@ -43,7 +70,7 @@ div[role=main] {
     text-overflow: ellipsis;
     white-space: nowrap;
     & > a {
-      color: #fff;
+      color: $primary-link-color;
       font-weight: 700;
       margin-left: rem-calc(1);
       &:hover {
@@ -76,7 +103,7 @@ div[role=main] {
 // Footer
 .footer-wrapper {
   background-color: #000;
-  padding-top: rem-calc(10);
+  padding-top: rem-calc(30);
 }
 footer {
   & a {
@@ -86,7 +113,7 @@ footer {
     font-size: rem-calc(14);
     line-height: rem-calc(18);
   }
-  padding-bottom: rem-calc(10);
+  padding-bottom: rem-calc(15);
 }
 
 .footer-image {
