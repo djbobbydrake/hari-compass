@@ -51,9 +51,16 @@ h4 {
 .content {
   padding-bottom: rem-calc(20);
 
+  & article {
+    margin-top: rem-calc(20);
+  }
+
   & img {
-    margin-top: rem-calc(15);
     margin-bottom: rem-calc(10);
+    @media #{$small-only} {
+      min-width: 100%;
+      height: auto;
+    }
   }
 }
 
