@@ -1,11 +1,21 @@
 // Logo
-.name img {
-  height: 40px;
-  position: relative;
-  top: -5px;
+.name {
+  & h1 > a {
+    display: block;
+    text-align: center;
+  }
+  img {
+    height: 40px;
+    position: relative;
+    top: -2px;
 
-  &:hover {
-    opacity: 0.95;
+    &:hover {
+      opacity: 0.85;
+    }
+
+    @media #{$large-up} {
+
+    }
   }
 }
 
@@ -56,10 +66,11 @@ h4 {
   }
 
   & img {
+    height: auto;
+    width: 100%;
     margin-bottom: rem-calc(10);
     @media #{$small-only} {
       min-width: 100%;
-      height: auto;
     }
   }
 }
