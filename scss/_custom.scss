@@ -18,7 +18,8 @@
     }
 
     @media #{$large-up} {
-
+      position: fixed;
+      top: 6px;
     }
   }
 }
