@@ -1,4 +1,8 @@
 // Logo
+.top-bar .title-area {
+  position: absolute;
+  z-index: 20;
+}
 .name {
   & h1 > a {
     display: block;
@@ -40,8 +44,16 @@ h4 {
   .top-bar-section {
     letter-spacing: 0.15rem;
 
-    & ul > li > a {
-      font-family: $menu-font-family;
+    & ul {
+      background-color: transparent;
+      & > li {
+        & > a {
+          font-family: $menu-font-family;
+        }
+        &.active {
+          background-color: $primary-color;
+        }
+      }
     }
 
     & ul.dropdown {
@@ -53,6 +65,19 @@ h4 {
 
     & a {
       @include single-transition(background-color, 100ms);
+    }
+  }
+}
+
+
+// Off canvas
+ul.off-canvas-list {
+  & > li > a {
+    font-family: $menu-font-family;
+    letter-spacing: 0.15rem;
+    color: $primary-link-color;
+    &:hover {
+      background-color: $primary-color;
     }
   }
 }
