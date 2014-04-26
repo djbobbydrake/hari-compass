@@ -4,7 +4,7 @@
   z-index: 20;
 }
 .name {
-  & h1 > a {
+  h1 > a {
     display: block;
     text-align: center;
   }
@@ -12,6 +12,7 @@
     height: 40px;
     position: relative;
     top: -2px;
+    @include single-transition();
 
     &:hover {
       opacity: 0.85;
@@ -25,18 +26,73 @@
 }
 
 // Typography
-h4 {
+h1, h4 {
   a {
+    @include single-transition();
     color: $primary-link-color;
     &:hover {
       color: $primary-color;
     }
   }
 }
+article {
+  h1 {
+    text-align: center;
+  }
+  time {
+    text-align: center;
+  }
+  p {
+    padding: 1rem 0;
+  }
+}
 
-// Body
+
+time {
+  font-size: rem-calc(14);
+  display: block;
+  padding-bottom: 1rem;
+  padding-left: 0.1rem;
+}
+
+// Buttons
+header {
+  > h1 {
+    font-size: 1.5rem;
+    font-family: $menu-font-family;
+    margin-top: 0.3rem;
+    text-align: center;
+
+    @media #{$medium-up} {
+      text-align: left;
+      margin-top: 1rem;
+    }
+
+    > a,
+    > a:visited {
+      color: #000;
+      background-color: $hha-bg-white;
+      padding: 0.25rem 1.1rem;
+          @include single-transition();
+
+    }
+    > a:hover,
+    > a:active {
+      color: #000;
+      background-color: $primary-color;
+    }
+  }
+}
+
+
+// Body & Content
 .f-topbar-fixed {
   padding-top: 0 !important;
+}
+
+.main-content {
+  background-color: $body-bg;
+  padding: 0 1rem;
 }
 
 
@@ -45,26 +101,35 @@ h4 {
   .top-bar-section {
     letter-spacing: 0.15rem;
 
-    & ul {
+    ul {
       background-color: transparent;
-      & > li {
-        & > a {
+      > li {
+        > a {
           font-family: $menu-font-family;
-        }
-        &.active {
-          background-color: $primary-color;
+          @include single-transition();
         }
       }
     }
 
-    & ul.dropdown {
-      & > li > a {
-        line-height: rem-calc(35);
+    ul.dropdown {
+      > li > a,
+      > li.active a {
+        line-height: rem-calc(35) !important;
         text-transform: none;
       }
     }
+    li.active.has-dropdown li:not(.active) > a {
+      color: $topbar-link-color;
+      background-color: #333;
 
-    & a {
+      &:hover,
+      &:active {
+        background-color: $primary-color;
+      }
+    }
+
+
+    a {
       @include single-transition(background-color, 100ms);
     }
   }
@@ -73,10 +138,18 @@ h4 {
 
 // Off canvas
 ul.off-canvas-list {
-  & > li > a {
+  > li > a {
     font-family: $menu-font-family;
     letter-spacing: 0.15rem;
     color: $primary-link-color;
+    &:hover {
+      background-color: $primary-color;
+    }
+  }
+  > li.active > a {
+    color: $topbar-link-color-active;
+    @include single-transition();
+    background-color: $topbar-link-bg-active;
     &:hover {
       background-color: $primary-color;
     }
@@ -87,11 +160,11 @@ ul.off-canvas-list {
 .content {
   padding-bottom: rem-calc(20);
 
-  & article {
+  article {
     margin-top: rem-calc(20);
   }
 
-  & img {
+  img {
     height: auto;
     width: 100%;
     margin-bottom: rem-calc(10);
@@ -106,14 +179,14 @@ ul.off-canvas-list {
   @media #{$large-up} {
     margin-top: 55px;
   }
-  & img {
+  img {
     width: 100%;
   }
-  & h2 {
+  h2 {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    & > a {
+    > a {
       color: $primary-link-color;
       font-weight: 700;
       margin-left: rem-calc(1);
@@ -126,10 +199,10 @@ ul.off-canvas-list {
       }
     }
   }
-  & .orbit-prev,
-  & .orbit-next {
+  .orbit-prev,
+  .orbit-next {
     top: 35%;
-    & span {
+    span {
       border-top-width: 12px;
       border-bottom-width: 12px;
       border-left-width: 12px;
@@ -150,10 +223,10 @@ ul.off-canvas-list {
   padding-top: rem-calc(30);
 }
 footer {
-  & a {
+  a {
     color: $footer-link-color;
   }
-  & p {
+  p {
     font-size: rem-calc(14);
     line-height: rem-calc(18);
   }
@@ -164,7 +237,7 @@ footer {
   max-height: 150px;
   overflow: hidden;
   width: 100%;
-  & > img {
+  > img {
     min-width: 100%;
     opacity: 0.8;
     width: 100%;
